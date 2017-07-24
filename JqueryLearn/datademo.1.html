@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>事件细节1</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       <script src="jquery-1.11.3.js"></script>
+       <style>
+         
+       </style>
+    </head>
+    <body>
+        <div id="man">
+            aaa
+        </div>
+     
+     
+     <!--
+         $ : JQuery  相等的
+         noConflict()  : 防止冲突的
+    -->
+
+
+    <script>
+         
+          //var miaov = $.noConflict();
+          //var $ = 10;
+          //miaov(function(){
+              //miaov('body').css('background','red');
+          //})        
+          
+          //转换json
+          var str = '{"name":"hello"}';
+          alert($.parseJSON(str).name);
+
+          //转换类数组
+          window.onload = function(){
+              var oDiv = document.getElementsByTagName('div');  //类数组
+
+              $.makeArray(oDiv).push();
+          }
+
+    </script>
+    </body>
+</html>

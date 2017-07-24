@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>dom操作</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       <script src="jquery-1.11.3.js"></script>
+       <style>
+          #div1{
+              width: 100px;
+              height: 100px;
+              background: red;
+              display: none;
+          }
+       </style>
+    </head>
+    <body>
+
+    <!--<div id="div1">
+        div
+    </div>-->
+
+    <div>div1 <span>span</span></div>
+    <div>div2</div>
+    <div>div3</div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        
+        $(function(){
+            
+            //JQuery和Javascript之间可以共存但是不能混用
+            //如果要一起用 就用 get:  把Jq转成原生的写法
+
+
+            //原生
+            //document.getElementById('div1').innerHTML;
+
+            //Jq
+            //alert($('#div1').get(0).innerHTML);
+
+            //for(var i=0;i<$('li').get().length;i++){  //通过get() 转换成原生
+              //  $('li').get(i).style.background = 'red';
+            //}
+
+            // for(var i=0;i<$('li').length;i++){
+                //$('li').get(i).style.background = 'red';
+                //$('li')[i].style.background = 'red';  //下标替换get()
+           // }
+
+           //offsetWidth: 获取不到隐藏元素的值
+           //alert($('#div1')[0].offsetWidth);
+
+           //outerWidh:  能获取到隐藏元素的值
+           //alert($('#div1').outerWidth());
+
+           //获取到第一组文本和div内的标签span
+           alert($('div').html());
+
+           //获取到所有内容 而标签获取不到
+           alert($('div').text());
+        });
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+    </body>
+</html>

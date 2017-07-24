@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>事件细节</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       <script src="jquery-1.11.3.js"></script>
+       <style>
+         
+       </style>
+    </head>
+    <body>
+        <div id="man">
+            aaa
+        </div>
+     
+            
+        <!--$().css()  $().html  $().val()  :  只能给JQ对象用
+        $.xxx()  $.yyy()  $.zzz()  不仅可以给Jq用 也可以给原生用 ： 叫做工具方法-->
+
+
+
+    <script>
+       $(function(){  
+         
+           //var a = 'hello';
+           //$.type()  :  也是判断类型
+           //alert(typeof a); 
+           //alert($.type(a));
+
+           var str = ' hello   ';
+           //trim  去掉空格
+           //alert('('+$.trim(str)+')');
+
+           //inArray()  : 类似于indexOf
+           //var arr = ['a','b','c','d'];
+           //alert( $.inArray('a',arr) );
+
+           //proxy()  :  改变this指向de
+           function show(n,z){
+               //alert(n);
+               //alert(z);
+               alert(this);
+           }
+           //show();
+           //$.proxy(show,document)(3,4);
+
+           $(document).click($.proxy(show,window,2,3));
+
+           
+
+           
+            
+            //$('#man').on('click',{name:'hello'},function(ev){
+                //alert(ev.data.name);
+                //alert(ev.target);
+                //alert(ev.type);
+            //})
+
+
+         
+       });
+
+    </script>
+    </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>动画</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       <script src="jquery-1.11.3.js"></script>
+       <style>
+           #box{
+               width: 100px;
+               height:100px;
+               background: red;
+           }
+           #box2{
+               width: 100px;
+               height:100px;
+               margin-top: 10px;
+               background: red;
+           }
+       </style>
+    </head>
+    <body>
+        
+        <div id="box">
+            div
+        </div>
+       <div id="box2">
+            div
+        </div>
+
+            
+    <script>
+        
+        //animate()  第一个参数 :{}  运动的值和属性
+        //第二个参数 时间 (运动快慢的)  默认400毫秒
+        //第三个参数 运动形式  默认seing(快慢快) linear(匀速)
+        
+        $(function(){  
+            
+            $('#box').click(function(){
+
+                //delay(1000) 延迟1秒
+                $(this).animate({width:300},2000).delay(1000).animate({height:300},2000);
+                //$('#box2').animate({width:300,height:300},2000);
+
+            });
+
+            $('#box2').click(function(){
+                //$('#box').stop();  //默认 只会阻止当前运动
+                //$('#box').stop(true);  //阻止后续的运动
+
+                //$('#box').stop(true,true);  //可以立即停止到指定的目标点
+
+                $('#box').finish();  //立即停止到所有的目标点
+            })
+
+        });
+
+    </script>
+    </body>
+</html>

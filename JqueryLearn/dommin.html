@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+         <script src="jquery-1.11.3.js"></script>
+         <style>
+         body{
+             margin: 0;
+             padding:0; 
+         }
+         .login{
+             width: 300px;
+             height: 300px;
+             border: 1px solid #ccc;
+             position: relative;
+         }
+         .close{
+             position: absolute;
+             right: 0;
+             top: 0;
+         }
+         </style>
+
+    </head>
+    <body>
+    
+<input type="button" value="点击" id="box">
+<!--<div class="login">
+    <p>用户名: <input type="text"> </p>
+    <p>密码: <input type="text"> </p>
+    <div class="close">X</div>
+</div>-->
+        <script>
+
+            $(function(){
+                
+                //var oDiv = $('<div>mememe</div>');
+                   // $('body').append(oDiv);
+
+                $('#box').click(function(){
+
+                    var oLogin = $('<div class="login"><p>用户名: <input type="text"> </p><p>密码: <input type="text"> </p><div class="close">X</div></div>');
+
+                    $('body').append(oLogin);
+
+                    oLogin.css('left', ($(window).width()- oLogin.outerWidth())/2);
+                    
+                    oLogin.css('top', ($(window).height()- oLogin.outerHeight())/2);
+
+                    $('.close').click(function(){
+                        oLogin.remove();
+                    })
+
+                    $(window).on('resize scroll',function(){
+                        oLogin.css('left', ($(window).width()- oLogin.outerWidth())/2);
+                    
+                    oLogin.css('top', ($(window).height()- oLogin.outerHeight())/2 +$(window).scrollTop());
+                    })
+                });
+            })
+
+        </script>
+
+
+    </body>
+</html>

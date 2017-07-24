@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>初见less</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <style>
+
+            .conten ul{
+                list-style: none;
+            }
+            .conten li{
+                height: 25px;
+                line-height: 25px;
+                padding-left: 15px;
+                background: url("img/arr.jpg")no-repeat center left;
+            }
+            .conten li a{
+                text-decoration: none;
+                color: #535353;
+            }
+
+            /*less写法*/
+            .conten{
+                ul{
+                list-style: none;
+            }
+            }
+            .conten li{
+                height: 25px;
+                line-height: 25px;
+                padding-left: 15px;
+                background: url("img/arr.jpg")no-repeat center left;
+            }
+            .conten li a{
+                text-decoration: none;
+                color: #535353;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <!--less 是一个CSS预编译处理器-->
+        <div class="conten">
+            <ul>
+                <li><a href="">测试文档</a></li>
+                <li><a href="">测试文档</a></li>
+                <li><a href="">测试文档</a></li>
+                <li><a href="">测试文档</a></li>
+                <li><a href="">测试文档</a></li>
+            </ul>
+        </div>
+
+
+    </body>
+</html>

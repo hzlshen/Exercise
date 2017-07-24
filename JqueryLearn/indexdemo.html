@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="jquery-1.11.3.js"></script>
+    </head>
+    <body>
+        
+        <div title="min">
+            div   
+            <span>123</span>   
+        </div>
+
+        <div class="box">
+            div1
+        </div>
+        <div>
+            div2
+        </div>
+
+        <div id="box">
+            div
+        </div>
+        <span>
+            span
+        </span>
+        <p>这是个p</p>
+
+        <div>
+            <h2>heheh</h2>
+            <h2>heheh</h2>
+            <h2>heheh</h2>
+            <h3>heheh</h3>
+            <h3 id="hu">heheh</h3>
+            <h3>heheh</h3>
+            <h2>heheh</h2>
+        </div>
+        <script>
+            $(function(){
+                //alert( $('div').attr('title'));  //赋值
+                //$('div').attr('title','456');
+                //$('div').attr('class','box');
+
+                //filter 过滤
+                //not filter的反义词
+               // $('div').filter('.box').css('background','yellow');  //过滤不是box的div
+              //  $('div').not('.box').css('background','red');  //选择不是不是box的div
+ 
+                //has 包含
+                //$('div').has('span').css('background','red');  //包含span的元素变红                
+
+
+                //next() prev() 上一个兄弟节点 下一个兄弟节点
+                $('#box').next().css('background','red');
+
+                //find()查找的意思
+                $('div').find('h2').eq(1).css('color','yellow');
+                
+                //index()  索引就是当前元素在所有兄弟节点中的位置
+                alert($('#hu').index());  //4
+
+                
+
+
+            })
+        </script>
+    </body>
+</html>

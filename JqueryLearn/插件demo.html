@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>插件</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       <script src="jquery-1.11.3.js"></script>
+       <script>
+
+            //$.extend  :  扩展工具方法下的插件形式 $.xxx()  $.yyy()
+            //$.fn.extend  :  扩展到Jq对象下的插件形式  $().xxx()  $().yyy()
+
+            $.extend({
+
+                leftTrim:function(str){
+                    return str.replace(/^\s+/,'');
+                },
+                rightTrim:function(){},
+                aaa:function(){
+                    alert(1);
+                },
+                bbb:function(){}
+            });
+
+            $.fn.extend({
+
+                drag:function(){
+
+                    //this  :  $('#box')
+
+                    var disX = 0;
+                    var disY = 0;
+                    var This  = this;
+
+                    this.mousedown(function(ev){
+
+                        disX = ev.pageX - $(this).offset().left;
+                        disY = ev.pageY - $(this).offset().top;                        
+
+                        $(document).mousemove(function(ev){
+
+                            This.css('left',ev.pageX - disX);
+                            This.css('top',ev.pageY - disY);
+                        });
+
+                        $(document).mouseup(function(){
+                            $(this).off();
+                        });
+                        return false;
+                    });
+                },
+                aaa:function(){
+                    alert(2);
+                }
+
+
+            });
+
+       </script>
+       <style>
+         #box{
+             width: 100px;
+             height: 100px;
+             background: red;
+             position: absolute;
+             /*text-indent: 20px;*/
+         }
+       </style>
+    </head>
+    <body>
+ 
+        <div id="box">
+            
+        </div>
+
+    <script>
+         
+         $(function(){
+
+            //var str = ' hello word   ';
+            //alert('('+$.leftTrim(str)+')');
+            $('#box').drag();
+            $.aaa();  //1
+            $().aaa();  //2
+           
+         })
+
+    </script>
+    </body>
+</html>

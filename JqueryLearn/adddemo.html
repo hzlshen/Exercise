@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>兄弟节点</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       <script src="jquery-1.11.3.js"></script>
+       <style>
+       </style>
+    </head>
+    <body>
+        
+        <div>
+            div
+        </div>
+        <span>span</span>
+
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+
+        <form>
+            <input type="text" name="a" value="1">
+            <input type="text" name="b" value="2">
+            <input type="text" name="c" value="3">
+        </form>
+            
+    <script>
+        
+        
+        $(function(){  
+            
+            var elem = $('div')
+            var elem2 = elem.add('span')
+
+            elem.css('color','red');
+            elem2.css('background','yellow');
+
+            //截取
+            $('li').slice(1,4).css('background','yellow');
+
+            console.log( $('form').serialize() );  //string a=1&b=2&c=3
+             console.log($('form').serializeArray());
+
+            //[
+                //{name:'a',value:'1'},
+                //{name:'b',value:'2'},
+               // {name:'c',value:'3'}
+            //]
+
+        });
+
+    </script>
+    </body>
+</html>

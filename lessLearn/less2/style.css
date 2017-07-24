@@ -1,0 +1,60 @@
+h1 {
+  font-size: 28px;
+  color: red;
+  font-family: 'microsoft yahei', "黑体", 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+h2 {
+  font-size: 24px;
+  color: red;
+  font-family: 'microsoft yahei', "黑体", 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+button:hvoer {
+  border: 1px solid red;
+}
+h1:hvoer {
+  border: 1px solid #008000;
+}
+h2:hover {
+  border: 1px solid #ff0000;
+}
+h1:hover {
+  border: 1px solid #ff0000;
+}
+.divmaiz {
+  color: #ff0000;
+  margin: 10px;
+  padding: 20px;
+}
+/*.div{
+    .mixin(1,2,3;someing,ele);
+}
+.div1{
+    .mixin(1,2,3);
+}*/
+.div2 {
+  color: 1, 2, 3;
+  margin: 10px;
+  padding: 20px;
+}
+.class1 {
+  color: #33acfe;
+  margin: 20px;
+  padding: 20px;
+}
+.class2 {
+  color: #33acfe;
+  margin: 10px;
+  padding: 40px;
+}
+footer {
+  border: 1px solid all;
+  border-radius: 5px;
+  border-top-left-radius: 10px;
+  background: red;
+}
+.div {
+  padding: 33px;
+}
+.wp {
+  width: 900px;
+}

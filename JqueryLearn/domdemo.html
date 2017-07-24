@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>节点的操作</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="jquery-1.11.3.js"></script>
+    </head>
+    <body style="height:2000px;">
+        <div>
+            Hello Word            
+        </div>
+        <span>你好世界！</span>
+
+
+        <script>
+
+            $(function(){
+
+            
+            //insertBefore 把xxx添加到xxx之前 
+            //把一个节点添加到指定节点的前面
+            //剪切的功能 而不是复制的功能
+            //$('span').insertBefore($('div'));
+
+            //insertAfter 插入到xxx之后
+            //把一个节点添加到指定节点的后面
+            //剪切的功能 而不是复制的功能
+           // $('div').insertAfter($('span'));
+
+            //appendTo : appendChild 
+            
+            //把一个元素添加到指定节点最后位置
+            //把div添加到span最后位置
+            //$('div').appendTo($('span'));
+
+            //把一个元素添加到制定节点最前位置
+            //把div添加到span最前位置
+            //$('div').prependTo($('span'));
+
+            //div 前面必须是span 对调位置
+            //$('div').before($('span'));
+            
+            //insertBefore 和 before 的区别
+            //后续操作变了
+            //$('div').before($('span')).css('background','red'); //hello word 变红
+           //$('span').insertBefore($('div')).css('background','red');  //你好世界变红
+
+            //$('div').click(function(){
+             //   alert('你好啊！')
+            //})     
+
+            //$('div').on('click',function(){
+             //   alert('我很好！')
+            //})   
+
+            $('div').on('click mouseover',function(){
+                alert('你好啊！')
+                $('div').off('mouseover');  //off取消事件
+            })  
+
+         //  $('div').on({
+        //       click:function(){
+        //           alert('么么哒');
+          //     },
+          //     mouseover:function(){
+           //        alert('呵呵哒');
+           //    }
+           //})     
+            
+           $(document).click(function(){
+               alert($(window).scrollTop());   //滚动距离
+           })
+
+
+        })
+
+        </script>
+    </body>
+</html>

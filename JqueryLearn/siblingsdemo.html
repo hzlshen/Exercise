@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>兄弟节点</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       <script src="jquery-1.11.3.js"></script>
+       <style>
+       </style>
+    </head>
+    <body>
+        
+        <div>div</div>
+            <span>span</span>
+            <span>span</span>
+            <div>
+            <span>span</span>
+            </div>
+            <p>p</p>
+            <h1>h1</h1>
+            <h2>h2</h2>
+            <em>em</em>
+            
+    <script>
+        
+        //nextAll()  找到下面所有兄弟节点
+        //siblings() 找到所有兄弟节点
+        //prevAll() 上面所有兄弟节点
+        //prevUntil() 截止xxx
+        //clone() 节点复制  可以接收一个参数 作用可以复制之前的操作行为
+        //wrap() 包装
+        //wrapALL()  整体包装
+        //wrapInner() 内部包装
+        //unwrap()  删除包装 删除父级 不包括body
+
+        
+        $(function(){  
+
+            //当前span所有兄弟节点变红 其中不包括span本身 
+            //参数也是筛选功能 和parents一样
+            //$('span').siblings('em').css('background','red');
+
+           // $('span').nextAll().css('background','red');
+           //找到上面所有兄弟节点
+           // $('span').prevAll().css('background','red');
+            
+             //$('span').nextUntil('h2').css('background','red');
+
+             //复制div
+            //$('div').clone().appendTo( $('span') );
+
+            //$('div').click(function(){
+            //    alert(123);
+            //})
+
+            //$('div').clone(true).appendTo( $('span') );
+
+            //$('span').wrap('<div>');
+            //$('span').wrapInner('<div>');
+            //$('span').wrapAll('<div>');
+              //$('span').unwrap();             
+
+
+        });
+
+    </script>
+
+
+    </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       <script src="jquery-1.11.3.js"></script>
+        <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 200px;
+            height:200px;
+            overflow: hidden;
+            background: red;
+            margin:20px;
+            position: absolute;  
+        }
+        #div2{
+            width: 100px;
+            height:100px;
+            margin: 30px;
+            background: yellow;
+            position: absolute;
+            left: 25px;
+        }
+        </style>
+    </head>
+    <body>
+    
+
+    <div id="div1">
+        <div id="div2">
+        </div>
+    </div>
+
+    <input type="button" name="" value="123">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    
+    <script>
+        
+        $(function(){
+            //parent()  : 获取父级
+            //offsetParent()   :  获取到有定位的父级
+            //$('#div2').parent().css('background','blue');
+
+
+            $('#div2').offsetParent().css('background','blue');
+
+            //获取到input的val值
+            //console.log($('input').val());
+            
+            //修改input的val值
+            //$('input').val(456)
+
+            //size  长度
+            //console.log($('li').size());  // 4  像length
+
+            //each() Jq中的循环 for循环的加强版
+            $('li').each(function(i,value){  //一参 下标 二参 每个元素
+                $(value).html(i);
+            })
+
+        })
+    </script>
+
+
+    </body>
+</html>

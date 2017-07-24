@@ -1,0 +1,138 @@
+.font_hn(){  //加括号 混合不带输出
+    color: red;
+    font-family: 'microsoft yahei', "黑体", 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+h1{
+    font-size: 28px;
+    .font_hn;
+}
+h2{
+    font-size: 24px;
+    .font_hn;
+}
+
+// 带选择器的混合
+.my_hover_mixin(){
+    &:hvoer{
+        border: 1px solid red;
+    }
+}
+// 等同于.my_hover_mixin:hover
+
+button{
+    .my_hover_mixin();
+}
+
+// 带参混合
+.border(@color){
+    border: 1px solid @color;
+}
+h1{
+    &:hvoer{
+        .border(green);
+    }
+}
+h2{
+    &:hover{
+        .border(red);
+    }
+}
+
+// 带参数且有默认值
+.border_color(@color:red){
+    border: 1px solid @color;
+}
+h1{
+    &:hover{
+        .border_color();
+    }
+}
+
+//带多个参数的混合
+//.mixin(@color;@padding:xx;@margin:2){
+//    color-3:@color;
+//    padding-3:@padding;
+//    margin-3:@margin @margin @margin @margin;
+//}
+.divmaiz{
+    .mixin(red);
+}
+
+//如果传参括号里面全部都是以" , "分割，那么会依次传给各个参数值
+//如果传参括号里面既有" , "又有" ; "，那么会把分号之前的逗号看做是一个整体 传给一个值
+/*.div{
+    .mixin(1,2,3;someing,ele);
+}
+.div1{
+    .mixin(1,2,3);
+}*/
+.div2{
+     .mixin(1,2,3;);
+ }
+//定义多个具有相同名称和参数数量的混合
+//.mixin(@color){
+//    color-1: @color;
+//}
+//.mixin(@color;@padding: 2){
+//    color-2:  @color;
+//    padding-2:@padding;
+//}
+//.mixin(@color;@padding;@margin:2){
+//    color-3:@color;
+//    padding-3:@padding;
+//    margin:@margin @margin @margin @margin;
+//}
+//.some .selector div{
+//    .mixin(#008000)
+//}
+
+//命名参数
+.mixin(@color:black;@margin:10px;@padding:20px){
+    color: @color;
+    margin: @margin;
+    padding: @padding;
+}
+.class1{
+    .mixin(@margin: 20px;@color: #33acfe);
+}
+.class2{
+    .mixin(#33acfe;@padding: 40px);
+}
+//.border(@x:solid;@c:red){
+//    border: 21px @arguments;
+//    //border: 21px @x @c;
+//}
+//.div1{
+//    .border();
+//}
+.border(all,@w:5px){
+    border-radius: @w;
+}
+.border(t-l,@w:5px){
+    border-top-left-radius: @w;
+}
+.border(t-r,@w:5px){
+    border-top-right-radius: @w;
+}
+.border(b-l,@w:5px){
+    border-bottom-left-radius: @w;
+}
+.border(b-r,@w:5px){
+    border-bottom-right-radius: @w;
+}
+footer{
+    .border(all);
+    .border(t-l,10px);
+    background: red;
+}
+//参数的混合值
+.average(@m,@n){
+    @average:((@m+@n)/2);
+}
+.div{
+    .average(16px,50px);
+    padding: @average;
+}
+.wp{
+    width: 450px+450;
+}

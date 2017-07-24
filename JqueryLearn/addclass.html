@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="jquery-1.11.3.js"></script>
+        <style>
+            div{
+                width: 100px;
+                height: 100px;
+                background:red; 
+                border: 10px solid #ccc;
+                padding: 10px;
+                margin:10px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="box box1">
+            div
+        </div>
+
+        <script>
+            //添加class
+            //$('div').addClass('box3 box4');
+
+            //移除class
+            //$('div').removeClass('box');
+
+            //获取屏幕的宽度
+            $(function(){
+                alert('这是'+$('.box').width()+'宽度'); //width
+                alert('这是'+$('.box').innerWidth()+'宽度');  //width+border
+                alert('这是'+$('.box').outerWidth(true)+'宽度');  //width + border + padding
+                //加上true就是width + border + padding + margin
+
+
+                alert('这是'+$('.box').height()+'高度'); //width                
+
+            }) 
+
+        </script>
+
+
+    </body>
+</html>

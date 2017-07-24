@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>鼠标拖拽</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       <script src="jquery-1.11.3.js"></script>
+       <style>
+            div{
+                width: 100px;
+                height: 100px;
+                background: red;
+                position: absolute;
+            }
+        
+       </style>
+    </head>
+    <body>
+
+    <div>
+    </div>
+    
+    <script>
+        
+        $(function(){
+
+            var disX = 0;
+            var disY = 0;
+
+            $('div').mousedown(function(ev){
+
+                disX = ev.pageX - $(this).offset().left;
+                disY = ev.pageY - $(this).offset().top;     
+
+                $(document).mousemove(function(ev){
+
+                    $('div').css('left',ev.pageX - disX);
+                    $('div').css('top',ev.pageY - disY);                    
+
+                });
+
+
+                $(document).mouseup(function(){
+                    $(document).off();
+                }); 
+
+                return false;
+            });
+
+        });
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+    </body>
+</html>

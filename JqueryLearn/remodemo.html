@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>删除节点</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       <script src="jquery-1.11.3.js"></script>
+       <style>
+       </style>
+    </head>
+    <body>
+        <div id="main">aaa
+            <div id="div2"></div>
+        </div>
+
+    <!--<div>div1 <span>span</span></div>-->
+    <script>
+
+        //$(document).ready(function(){
+
+        //})
+        //等同于下面 $(func(){...}) 都是等待dom加载完成
+        
+        $(function(){  //等DOM加载完就可以执行了  ，比原生的window.onload = func(){..}性能要好
+
+            //window.onload = function(){}  //原生等整个html页面加载完成才执行
+ 
+            //remove 删除了在恢复不保留操作行为
+            //detach()  跟remove方法一样 只不过会保留删除这个元素的操作行为
+            
+            //$('div').click(function(){
+               // alert(123);
+           // })
+
+           // var oDiv = $('div').detach();
+           // $('body').append( oDiv );
+           
+           //parents() 获取当前元素的所有祖先节点 ,参数就是筛选功能
+           //closest() 获取最近的指定的祖先节点 包括元素自身
+          // $('#div2').parents().css('background','yellow');
+            //  $('#div2').parents('body').css('background','yellow');
+            
+            //最近的祖先节点
+            //$('#div2').closest('body').css('background','yellow');
+
+        });
+
+    </script>
+
+
+    </body>
+</html>

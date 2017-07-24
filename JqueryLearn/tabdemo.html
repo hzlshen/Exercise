@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="jquery-1.11.3.js"></script>
+        <style>
+            #box div{
+                width: 200px;
+                height: 200px;
+                border: 1px solid red;
+                display: none;
+            }
+            .active{
+                background: red;
+            }
+        </style>
+    </head>
+    <body> 
+
+        <div id="box">
+            <input class="active" type="button"  value="1">
+            <input type="button"  value="2">
+            <input type="button" value="3">
+            <div style="display:block;">div1</div>
+            <div >div2</div>
+            <div >div3</div>
+        </div>
+        
+        <!--<script>
+            //原生选项卡
+            window.onload = function(){
+                var  oDiv  = document.getElementById('box');
+                var aInput  = oDiv.getElementsByTagName('input');
+                var aCon = oDiv.getElementsByTagName('div');
+
+                for(var i=0;i<aInput.length;i++){
+
+                    aInput[i].index = i;
+
+                    aInput[i].onclick = function(){
+                        for(var i= 0; i<aInput.length;i++){
+                            aInput[i].className ='';
+                            aCon[i].style.display = 'none';
+                        }
+                        this.className = 'active';
+                        aCon[this.index].style.display = 'block';
+                    }
+                }
+            };
+        </script>-->
+        <script>
+            $(function(){
+                //找到所有input给它点击事件
+                $('#box').find('input').click(function(){
+
+                    //置空
+                    $('#box').find('input').attr('class','');
+                    //div隐藏
+                    $('#box').find('div').css('display','none');
+
+
+                    //让当前的class加active
+                    $(this).attr('class','active');
+
+                    //找到div设置display 用index索引
+                    $('#box').find('div').eq($(this).index()).css('display','block');
+
+
+                })
+            })
+        </script>
+    
+    </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>事件委托</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       <script src="jquery-1.11.3.js"></script>
+       <style>
+           #box{
+               width: 100px;
+               height:100px;
+               background: red;
+           }
+           #box2{
+               width: 100px;
+               height:100px;
+               margin-top: 10px;
+               background: red;
+           }
+       </style>
+    </head>
+    <body>
+        
+      <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+          <li>6</li>
+      </ul>
+
+            
+    <script>
+        
+        
+        $(function(){  
+            
+            //$('li').on('click',function(){
+                //this.style.background = 'red';
+            //})
+
+            //delegate: 事件委托到ul
+            $('ul').delegate('li','click',function(){
+                this.style.background = 'red';;
+
+                $('ul').undelegate();  //阻止事件委托
+            })
+
+        });
+
+    </script>
+    </body>
+</html>

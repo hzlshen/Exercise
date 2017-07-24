@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       <script src="jquery-1.11.3.js"></script>
+        <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 200px;
+            height:200px;
+            overflow: hidden;
+            background: red;
+            margin: 20px;
+            /*position: absolute;*/  /*加上position到屏幕的左距离是五十*/
+        }
+        #div2{
+            width: 100px;
+            height:100px;
+            margin: 30px;
+            background: yellow;
+        }
+        </style>
+    </head>
+    <body>
+    
+
+    <div id="div1">
+        <div id="div2">
+        </div>
+    </div>
+
+    
+    <script>
+        
+        $(function(){
+            //$('div').click(function(ev){
+
+               //原生 var ev = ev || window.event;
+
+               //ev : event对象
+               //ev.pageX(相对于文档的) : clientX(相对于可视区)
+               
+               //ev.which(键盘的键值,还可以计算鼠标的键值)  : keyCode 
+
+               //ev.preventDefault()  阻止默认事件
+               //ev.stopPropagation()  //阻止冒泡的操作
+
+               //return false;  //等于阻止默认事件 + 阻止冒泡操作
+           // });
+
+            //$('div').one('click',function(){  //one 事件只执行一次
+                //alert(123);
+           // })
+
+           //offset
+
+            //div2.offsetLeft()
+            alert($('#div2').offset().left);  //获取到屏幕的左距离 不管有没有定位
+
+            //Position().top 在Jq中也是定位的意思
+            //到有定位的父级的left的值把当前元素转化成类似定位的形式
+            alert($('#div2').position().left)  
+            //只算left的20  不算边距的30
+        })
+
+
+
+
+
+
+
+    </script>
+
+
+    </body>
+</html>

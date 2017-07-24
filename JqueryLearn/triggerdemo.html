@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>主动触发</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       <script src="jquery-1.11.3.js"></script>
+       <style>
+         
+       </style>
+    </head>
+    <body>
+        
+      <div id="min">
+        aaa
+      </div>
+
+            
+    <script>
+        
+        
+        $(function(){  
+            
+            //$('#min').on('click',function(){
+               // alert(123);
+            //})
+
+            //$('#min').trigger('click');  //trigger 主动触发
+
+            $('#min').on('show',function(){
+               alert(123);
+            });
+            $('#min').on('show',function(){
+               alert(456);
+            });
+
+            $('#min').trigger('show');
+
+        });
+
+    </script>
+    </body>
+</html>

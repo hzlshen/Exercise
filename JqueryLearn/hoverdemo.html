@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>hover方法</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       <script src="jquery-1.11.3.js"></script>
+       <style>
+            #div1{
+                width: 100px;
+                height: 100px;
+                background: red;
+            }
+            #div2{
+                width: 100px;
+                height: 100px;
+                background: yellow;
+            }
+        
+       </style>
+    </head>
+    <body>
+
+    <div id="div1">
+    </div>
+    <div id="div2"></div>
+    
+    <script>
+        
+        $(function(){
+            $('#div1').hover(function(){
+
+                //$(this).css('background','blue');
+
+                //隐藏
+                //$('#div2').hide(1000);   //hide 可接收时间参数
+                
+                //淡入
+                //$('#div2').fadeOut(1000);   //默认400毫秒  
+
+                //向上收缩
+                //$('#div2').slideUp();   
+
+                //半透明
+                $('#div2').fadeTo(1000,0.5);        
+
+
+            },function(){
+
+                //$(this).css('background','red');
+
+                //显示
+                //$('#div2').show(1000);                
+
+                //淡出
+                //$('#div2').fadeIn(1000);   
+
+                //向下展开
+                //$('#div2').slideDown();                             
+
+                $('#div2').fadeTo(1000,1);
+
+            })
+            
+        });
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+    </body>
+</html>

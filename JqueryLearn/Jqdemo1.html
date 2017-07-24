@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--<link href="css/style.css" rel="stylesheet">-->
+        <script src="jquery-1.11.3.js"></script>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <!--Jq核心的设计思想-->
+            <!--1、选择网页元素更便捷
+                模拟css选择元素
+                独有表达式选择
+                多种筛选方法
+            2、写法
+                方法函数化
+                链式操作
+                取值复合体-->
+                
+    <div id="div1" class="box">
+        Hello word
+    </div>
+    <span class="box">hehhe</span>
+    
+
+    <ul>
+        <li>1</li>
+        <li title="hello">2</li>
+        <li class="box">3</li>
+        <li class="box">3</li>
+        <li>3</li>
+        <li title="hello">4</li>
+    </ul>
+
+    <!--方法函数化-->
+    <div id="box1">
+        呵呵哒
+    </div>
+
+    <div id="box2">
+        萌萌哒
+    </div>
+    <script>
+        //原生实现
+        //document.getElementById('div1');
+        //document.getElementsByTagName('box');
+        //getByClass(document,'box');
+
+        //Jq实现
+        // $('#div1').css('background','red');
+        // $('div').css('background','red');
+        $('.box').css('background','red');
+        //首
+        //$('li:first').css('background','red');
+        //尾
+        //$('li:last').css('background','red');
+        //下标
+        //$('li:eq(2)').css('background','red');
+        //奇数
+        //$('li:even()').css('background','red');
+        //偶数
+        //$('li:odd()').css('background','red');        
+       // $('li.box').css('background','red');
+        $('li').filter('.box').css('background','red');
+        //filter 过滤方法
+        //属性筛选
+        $('li').filter('[title=hello]').css('background','yellow');
+
+
+
+        //方法函数化
+        //window.onload=function(){}  原生写法  页面加载
+        // $(function(){}) jq写法
+        //function $(){} jq底层函数定义了这样一个$的方法 我们调用$ 就是func这个方法 就是方法函数化
+
+        //innerHTML=123; 原生写法
+        //html(123)  jq写法
+        //function html(){}   jq底层
+
+        //onclick(){}  
+        //click(function(){})   jq底层
+
+        //原生写法 点击div
+       // window.onload = function(){
+         //   var oDiv = document.getElementById('box1');
+            //oDiv.onclick= function(){
+            //    alert(this.innerHTML);
+            //}
+        //};
+
+        //jq写法
+        //jq的封装 基本上忽略了赋值这一步
+        //而是通过传参的形式来完成
+        //一定带上括号 只有带上括号才代表执行 这就是方法函数化
+       // $(function(){
+           // var oDiv = $('#box1');
+          //  $('#box1').click(function(){
+               // alert($(this).html());  jq的写法
+
+                  // alert(this.innerHTML);  js的写法
+                       //jq和原生js可以共存 但是不能混用
+
+          //  });
+       // });
+
+       //链式操作
+
+       //标准的原生js的结构写法
+       //$(function(){
+            //var oDiv = $('#box1');
+           // oDiv.html('hello');
+            //oDiv.css('background','green');
+            //oDiv.click(function(){
+                //alert(123);
+            //})
+
+       //})
+
+       //链式写法
+       //$(function(){
+           //$('#box1').html('hello').css('background','green').click(function(){
+             //   alert(123);
+           // });
+       //});
+       
+       //取值赋值合体
+       $(function(){
+
+            //oDiv.innerHTML = 'hello';  //赋值
+           // alert(oDiv.innerHTML);    //取值
+
+           //jq取值赋值合体 有无()看有无参数调用
+           //$('#box2').html('memeda');  //赋值
+           //alert($('#box2').html());   //取值
+
+           //alert($('li').html());  //当一组元素的时候 取值只取第一个
+
+           //alert($('li').html('hello'));    //当一组元素的时候 赋值是一组中所有元素
+
+       })
+    </script>
+    </body>
+</html>
