@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>重新理解js的6种继承方式之学习</title>
+</head>
+<body>
+
+    <script>
+        
+        function Fun(){
+            //私有
+            var val = 1;  //私有基本属性
+            var arr = [1];  //私有引用属性
+            function fun(){}  //私有函数
+
+            //实例
+            this.val = 1;   //实例基本属性
+            this.arr = [1]; //实例引用属性
+            this.fun = function(){}  //实例函数(引用属性)
+        }
+
+        //原型
+        Fun.prototype.val = 1;  //原型基本属性
+        Fun.prototype.arr = [1];  //原型引用属性
+        Fun.prototype.fun = function(){}  //原型函数
+
+        //具体实现
+        function Super(){
+            this.val = 1;
+            this.arr = [2];
+        }
+        function Sub(){}
+
+        Sub.prototype = new Super();  //核心
+        var sub1=new Sub();
+        var sub2=new Sub();
+
+        sub1.val = 2;
+        sub1.arr.push(3);
+        console.log(sub1.val);
+        console.log(sub2.val);
+
+        console.log(sub1.arr);
+        console.log(sub2.arr);
+        
+
+        
+        
+
+        
+    </script>
+
+
+    
+</body>
+</html>
