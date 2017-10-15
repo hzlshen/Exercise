@@ -45,6 +45,27 @@
 
         console.log(sub1.arr);
         console.log(sub2.arr);
+
+        //核心：拿父类实例来充当子类原型对象
+
+        // 二、构造函数
+        function Sub(val){
+            Super.call(this, val);   // 核心
+            // ...
+        }
+        
+        var sub1 = new Sub(1);
+        var sub2 = new Sub(2);
+        sub1.arr.push(2);
+        alert(sub1.val);    // 1
+        alert(sub2.val);    // 2
+        
+        alert(sub1.arr);    // 1, 2
+        alert(sub2.arr);    // 1
+        
+        alert(sub1.fun === sub2.fun);   // false
+
+        
         
 
         
