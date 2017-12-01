@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head runat="server">
+    <title></title>
+    <script type="text/javascript" src="jquery.js"></script>
+    <style type="text/css">
+        #choice_list_district {
+            height: 50px;
+        }
+        
+        #tab td {
+            cursor: pointer;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            //绑定事件处理 
+            $("#choice_list_district a").click(function(e) {
+                if ($("#divObj").css("display") == "none") {
+                    e.stopPropagation();
+                    //设置弹出层位置 
+                    var offset = $(e.target).offset();
+                    //设置弹出层位置在点击的下面 
+                    $("#divObj").css({
+                        top: offset.top + $(e.target).height() + "px",
+                        left: offset.left
+                    });
+                    $("#divObj").show();
+                } else {
+                    $("#divObj").hide();
+                }
+            });
+            //单击空白区域隐藏弹出层 
+            $(document).click(function(event) {
+                $("#divObj").hide();
+            });
+            //单击弹出层则自身隐藏 
+            //$("#divObj").click(function (event) { $("#divObj").hide(speed) }); 
+            $("#tab tr td").click(function(event) {
+                $("#aaa").val($(this).html());
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <div id="choice_list_district">
+                <a href="#">出来层</a>
+            </div>
+            <div id="divObj" style="position: absolute; width:200px; height:200px; background:blue; border:1px solid block; display:none; z-index:9999;">
+                <table id="tab">
+                    <tr>
+                        <td>aaa</td>
+                    </tr>
+                    <tr>
+                        <td>bbb</td>
+                    </tr>
+                </table>
+            </div>
+            <div style="position:absolute; top:200px; left:200px;">
+                <input type="text" id="aaa" />
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

@@ -33,8 +33,7 @@
             text-align: center;
             line-height: 300px;
             position: absolute;
-            top: 80px;
-            right: 0;
+            display: none;
         }
     </style>
     <script src="jquery.js"></script>
@@ -45,7 +44,7 @@
     <div class="mian">
         <div class="one" id="box">
             webapp
-
+            <div class="one_item"> 这是一个弹窗</div>
         </div>
         <div class="one">
             html
@@ -61,20 +60,6 @@
         </div>
     </div>
 
-    <!-- <script>
-        $("#Onclick").click(function(e) {
-            var pX = e.pageX - $(this).offset().left;
-            var pY = e.pageY - $(this).offset().top;
-            console.log(pX + '' + pY);
-            $('.one_item').hide();
-        })
-        $("#Onclick").click(function(e) {
-            var pX = e.pageX - $(this).offset().left;
-            var pY = e.pageY - $(this).offset().top;
-            console.log(pX + '' + pY);
-            $('.one_item').show();
-        })
-	</script> -->
     <script>
         $(function() {
 
@@ -85,17 +70,24 @@
                 var pX = e.pageX - $(this).offset().left;
                 var pY = e.pageY - $(this).offset().top;
                 console.log(pX + '' + pY);
-                var oLogin = $('<div class="one_item"> 这是一个弹窗</div>');
+                var oLogin = $('');
 
-                $('#box').append(oLogin);
 
-                oLogin.css('left', ($(window).width() - oLogin.outerWidth()) / 5);
+                if ($('.one_item').css("display") == "none") {
+                    $(".one_item").show();
+                    $('.one_item').offset({
+                        top: 80,
+                        left: 50
 
-                oLogin.css('top', ($(window).height() - oLogin.outerHeight()) / 5);
+                    })
+                } else {
+                    $(".one_item").hide();
+                    $('.one_item').offset({
+                        top: 80,
+                        left: 50
 
-                $('.close').click(function() {
-                    oLogin.remove();
-                })
+                    })
+                }
 
 
             });
