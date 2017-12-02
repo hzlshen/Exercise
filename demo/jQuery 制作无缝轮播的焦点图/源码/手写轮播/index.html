@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>无缝轮播</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+			list-style:none;
+		} 
+		 .banner{
+			margin:100px auto;
+			border:5px solid #000;
+			width:550px;
+			height:300px;
+			 overflow:hidden; 
+			position:relative;
+		}
+		.banner .img{
+			width:5000px;
+			position:absolute;
+			left:0;
+			top:0;
+		}
+		 .banner .img li{
+			float:left;
+		 }
+		 .banner .num{
+			position:absolute;
+			width:100%;
+			bottom:10px;
+			left:0;
+			text-align:center;
+			font-size:0px;
+			cursor:pointer;
+		 }
+		 .banner .num li{
+			width:10px;
+			height:10px;
+			background:#888;
+			border-radius:50%;
+			display:inline-block;
+			margin:0 3px;
+		 }
+		 .banner .num li.on{
+			background:#F60;
+		 }
+		.banner .btn{
+			width:30px;
+			height:50px;
+			background:rgba(0,0,0,.5);
+			position:absolute;
+			top:50%;
+			margin-top:-25px; 
+			line-height:50px;
+			font-size:40px;
+			color:#fff;
+			font-family:"宋体";
+		}
+		.banner .btn_l{
+			left:0;
+		}
+		.banner .btn_r{
+			right:0;
+		}
+	</style>
+</head>
+<body>
+	<div class="banner">
+		<ul class="img">
+			<li><a href="#"><img src="img/1.jpg"></a></li>
+			<li><a href="#"><img src="img/2.jpg"></a></li>
+			<li><a href="#"><img src="img/3.jpg"></a></li>
+			<li><a href="#"><img src="img/4.jpg"></a></li>
+		</ul>
+		
+		<ul class="num">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+
+		<div class="btn btn_l">&lt;</div>
+		<div class="btn btn_r">&gt;</div>
+
+	</div>
+	<script src="js/"></script> 
+</body>
+</html>

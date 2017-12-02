@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无缝轮播</title>
+<style>
+*{ padding:0; margin:0; list-style:none;}
+.banner{ margin:100px auto; border:5px solid #000; width:550px; height:300px; overflow:hidden; position:relative;}
+.banner .img{ width:5000px; position:absolute; left:0px; top:0;}
+.banner .img li{ float:left;}
+
+.banner .num{ position:absolute; width:100%; bottom:10px; left:0; text-align:center; font-size:0px;}
+.banner .num li{ width:10px;height:10px; background:#888; border-radius:50%; display:inline-block; margin:0 3px; cursor:pointer;}
+.banner .num li.on{ background:#F60;}
+
+.banner .btn{ width:30px; height:50px; background:rgba(0,0,0,0.5); position:absolute; top:50%; margin-top:-25px; cursor:pointer; text-align:center; line-height:50px; color:#fff; font-size:40px; font-family:"宋体"; display:none;}
+.banner:hover .btn{ display:block;}
+
+.banner .btn_l{ left:0;}
+.banner .btn_r{ right:0;}
+
+</style>
+<script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript">
+
+$(function(){
+	
+	var i=0;
+	var clone=$(".banner .img li").first().clone();
+	$(".banner .img").append(clone);	
+	var size=$(".banner .img li").size();	
+	for(var j=0;j<size-1;j++){
+		$(".banner .num").append("<li></li>");
+	}
+	$(".banner .num li").first().addClass("on");
+	
+	
+	/*鼠标划入圆点*/
+	$(".banner .num li").hover(function(){
+		var index=$(this).index();
+		i=index;
+		$(".banner .img").stop().animate({left:-index*550},500)	
+		$(this).addClass("on").siblings().removeClass("on")		
+	})
+	
+	
+	/*自动轮播*/
+	var t=setInterval(function(){
+		i++;
+		move()
+	},2000)
+	
+	
+	/*对banner定时器的操作*/
+	$(".banner").hover(function(){
+		clearInterval(t);
+	},function(){
+		t=setInterval(function(){
+			i++;
+			move()
+		},2000)
+	})
+	
+	
+	
+	/*向左的按钮*/
+	$(".banner .btn_l").click(function(){
+		i++
+		move();	
+	})
+	
+	
+	
+	/*向右的按钮*/
+	$(".banner .btn_r").click(function(){
+		i--
+		move()				
+	})
+	
+	
+	
+	
+	
+	
+	function move(){
+		
+		if(i==size){
+			$(".banner  .img").css({left:0})			
+			i=1;
+		}
+		
+		
+		if(i==-1){
+			$(".banner .img").css({left:-(size-1)*550})
+			i=size-2;
+		}
+		
+		$(".banner .img").stop().animate({left:-i*550},500)	
+		
+		if(i==size-1){
+			$(".banner .num li").eq(0).addClass("on").siblings().removeClass("on")	
+		}else{		
+			$(".banner .num li").eq(i).addClass("on").siblings().removeClass("on")	
+		}
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+})
+
+
+
+</script>
+
+
+</head>
+
+<body>
+<div class="banner">
+	<ul class="img">
+    	<li><a href="#"><img src="images/1.jpg"></a></li>
+        <li><a href="#"><img src="images/2.jpg"></a></li>
+        <li><a href="#"><img src="images/3.jpg"></a></li>
+        <li><a href="#"><img src="images/4.jpg"></a></li>
+    </ul>
+    
+    <ul class="num">    	
+    </ul>
+    
+    <div class="btn btn_l">&lt;</div>
+    <div class="btn btn_r">&gt;</div>
+
+</div>
+
+</body>
+</html>
