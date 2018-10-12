@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>可拖动节点</title>
+    <script src="https://cdn.bootcss.com/jsPlumb/2.6.8/js/jsplumb.min.js"></script>
+    <style>
+        .item {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #333;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="diagramContainer">
+        <div id="item_left" class="item">
+
+        </div>
+        <div id="item_right" style="margin-left:150px;" class="item">
+
+        </div>
+    </div>
+    <script>
+        jsPlumb.ready(function() {
+            jsPlumb.connect({
+                source: 'item_left',
+                target: 'item_right',
+                endpoint: 'Rectangle'
+            })
+            jsPlumb.draggable('item_left');
+            jsPlumb.draggable('item_right');
+        })
+    </script>
+</body>
+
+</html>
