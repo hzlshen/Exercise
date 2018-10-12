@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>一个简单的关系图</title>
+    <script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.g6-2.0.5/build/g6.js"></script>
+</head>
+
+<body>
+
+    <div id="mountNode">
+
+    </div>
+
+    <script>
+        const data = {
+            nodes: [{
+                id: 'node1',
+                x: 100,
+                y: 100
+            }, {
+                id: 'node2',
+                x: 100,
+                y: 200
+            }],
+            edges: [{
+                id: 'edge1',
+                target: 'node2',
+                source: 'node1'
+            }]
+        };
+        const graph = new G6.Graph({
+            container: 'mountNode',
+            width: 500,
+            height: 500
+        });
+        graph.read(data)
+    </script>
+</body>
+
+</html>
