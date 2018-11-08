@@ -1,1 +1,0 @@
-document.write('webpack hello word')
